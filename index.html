@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>real time database</title>
+  <link rel="stylesheet" href="color.css">
+</head>
+<body bgcolor="lightblue">
+
+  <div class="topnav" id="myTopnav">
+  <a href="cn.html">HomeWork</a>
+  <a href="#news">Assignment</a>
+  <a href="#contact">News</a>
+  <a href="#about">About</a>
+  <a href="#timetable">timetable</a>
+
+</div>
+
+<center><h1 id="bigOne"></h1></center>
+<h2 id="cn"></h2>
+<h4 id="cnhw"></h4>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCvJeiJl9G-ALR8Eaq_7INgFN27BufG1Og",
+    authDomain: "news-fac8c.firebaseapp.com",
+    databaseURL: "https://news-fac8c.firebaseio.com",
+    projectId: "news-fac8c",
+    storageBucket: "",
+    messagingSenderId: "1018313755670"
+  };
+  firebase.initializeApp(config);
+  var bigOne =document.getElementById('bigOne');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value',snap => bigOne.innerText = snap.val());
+  var cn = document.getElementById('cn');
+  var dbRef = firebase.database().ref().child('cn');
+  dbRef.on('value',snap =>cn.innerText = snap.val());
+  var cnhw = document.getElementById('cnhw');
+  var dbRef = firebase.database().ref().child('cnhw');
+  dbRef.on('value',snap =>cnhw.innerText = snap.val());
+  </script>
+
+</body>
+</html>
